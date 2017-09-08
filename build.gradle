@@ -1,0 +1,22 @@
+defaultTasks 'jar'
+
+apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName = 'edu.gatech.oad.antlab.pkg1.AntLabMain'
+
+sourceCompatibility = 1.8
+version = '1.0'
+
+jar {
+    manifest {
+        attributes  'Implementation-Title': 'M2 test',
+        			'Implementation-Version': version,
+        			'Main-Class': 'edu.gatech.oad.antlab.pkg1.AntLabMain',
+        			'Class-Path': '../../lib/resources.jar'
+    }
+}
+
+dependencies {
+	compile fileTree(dir: 'lib', include: '*.jar')
+}
