@@ -1,4 +1,7 @@
 package edu.gatech.oad.antlab.person;
+import java.util.Random;
+import java.util.List;
+import java.util.ArrayList;
 
 /**
  *  A simple class for person 2
@@ -30,9 +33,21 @@ public class Person2 {
 	 * @return the modified string
 	 */
 	private String calc(String input) {
-	  //Person 2 put your implementation here
-	  return null;
+		//Random rand = new Random();
+		//int number = rand.nextInt(input.length() - 1);
+
+		List<Character> chars = new ArrayList<Character>();
+		for(char c:input.toCharArray()){
+			chars.add(c);
+		}
+		StringBuilder result = new StringBuilder(input.length());
+		while(chars.size() != 0){
+			int randPicker = (int)(Math.random() * chars.size());
+			result.append(chars.remove(randPicker));
+		}
+		return result.toString();
 	}
+
 	/**
 	 * Return a string rep of this object
 	 * that varies with an input string
@@ -44,4 +59,5 @@ public class Person2 {
 	public String toString(String input) {
 	  return name + calc(input);
 	}
+
 }
